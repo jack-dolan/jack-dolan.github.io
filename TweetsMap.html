@@ -24,26 +24,37 @@
 <body>
   <!-- Add heading for the visualization -->
   <div>
-  <h2>Sentiment Analysis of U.S. 2020 Presidential 
-    <br>Candidates Using Twitter Data</h2>
+    <h2>Sentiment Analysis of U.S. 2020 Presidential
+      <br>Candidates Using Twitter Data</h2>
   </div>
+
 
   <!-- append visualization svg to this div-->
   <div id="choropleth">
     <script src="TweetsMap.js"></script>
+    <div id="legend2">
+      <div class="legend2">
+        <p class="country-name"><span class="key-dot darkblue"></span>Strongly Biden</p>
+      </div>
+      <div class="legend2">
+        <p class="country-name"><span class="key-dot lightblue"></span>Somewhat Biden</p>
+      </div>
+      <div class="legend2">
+        <p class="country-name"><span class="key-dot neutral"></span>Neutral</p>
+      </div>
+      <div class="legend2">
+        <p class="country-name"><span class="key-dot lightred"></span>Somewhat Trump</p>
+      </div>
+      <div class="legend2">
+        <p class="country-name"><span class="key-dot darkred"></span>Strongly Trump</p>
+      </div>
+    </div>
+    <p></p>
   </div>
-  <!-- <div style="margin-left: 150px;" id="legend"></div> -->
-  
-  <!-- <div class="legend4"></div> -->
-  <div id="legend2">
-	   <div class="legend2"> <p class="country-name"><span class="key-dot darkblue"></span>Strongly Biden</p> </div>
-	   <div class="legend2"> <p class="country-name"><span class="key-dot lightblue"></span>Somewhat Biden</p> </div>
-     <div class="legend2"> <p class="country-name"><span class="key-dot neutral"></span>Neutral</p> </div>
-     <div class="legend2"> <p class="country-name"><span class="key-dot lightred"></span>Somewhat Trump</p> </div>
-	   <div class="legend2"> <p class="country-name"><span class="key-dot darkred"></span>Strongly Trump</p> </div>
-  </div>
+
   <p></p>
   <!-- Word Cloud visualization svg to this div-->
+
   <div id="chart">
     <!-- Dropdown -->
     <style type="text/css">
@@ -54,21 +65,17 @@
         line-height: 28px;
       }
     </style>
-    
-    
+
     <div style="float: left; margin-left: 100px;">
       <div id="DivSelect">
-        <p>Select State to see its Word Cloud:</p>
-        <select class="GameSelect" name="GameSelect" style='width:350px'>
-
-        </select>
+        <p style="font-weight: bold; font-size: 1.2rem;">Select State to See Its Word Cloud:</p>
+        <select class="GameSelect" name="GameSelect" style='width:350px'></select>
       </div>
     </div>
   </div>
 
   <div>
-    <h3 style='display:block; width:100%; height:10px; font-size:14px; text-align:center;  margin-left: 300px;'>Team 52
-    </h3>
+    <h3 style='display:block; width:65%; height:10px; font-size:14px; text-align:center;  margin-left: 300px;'>Team 52</h3>
   </div>
 
 </body>

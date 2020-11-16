@@ -1,9 +1,9 @@
 
 // enter code to define margin and dimensions for svg
-var margin = { top: 60, right: 150, bottom: 1, left: 90 },
+var margin = { top: 95, right: 150, bottom: 70, left: 90 },
     width = 1000 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
-
+    height = 550 - margin.top - margin.bottom;
+    // height + margin.top + margin.bottom
 // enter code to create svg
 var svg = d3.select("#choropleth").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -31,16 +31,16 @@ var Politicalcolor = d => {
  //Make an SVG Container
  var svgContainer = d3.select("body").append("svg")
                                      .attr("width", 1000)
-                                     .attr("height", 120);
+                                     .attr("height", 100);
 
  //Draw the Rectangle
 var Sumtext = svgContainer.append("text")
-    .attr("x", 300)
+    .attr("x", 180)
     .attr("y", 30)
-    .attr("font-size", "2em")
+    .attr("font-size", "1.5em")
     .attr("color", "black")
     .attr('font-weight', 'bold')
-    .text("Road to 270 Electoral Votes");
+    .text("Electoral Votes Distribution by Twitter Sentiments");
 var Bidenrectangle = svgContainer.append("rect")
     .attr("x", 80)
     .attr("y", 40)
@@ -79,6 +79,7 @@ var Trumptext = svgContainer.append("text")
     .attr("font-size", "2em")
     .attr("color", "black")
     .text("187");
+
 // enter code to define tooltip
 var tip = d3.tip()
     .attr('class', 'd3-tip')
@@ -202,19 +203,19 @@ function createMapAndLegend(states, aggData, selectedGame, wordsCount) {
         .attr('d', path)
         .attr('fill', function (d) { return Politicalcolor(PrefDiffByState[d.properties.name]) })
         .style('stroke', 'white')
-        .style('opacity', 1)
+        .style('opacity', 0.95)
         .style('stroke-width', 0.3)
         .on('mouseover', function (d) {
             tip.show(d);
             d3.select(this)
                 .style('opacity', 1)
-                .style('stroke-width', 2)
+                .style('stroke-width', 2.5)
                 .style('stroke', 'black');
         })
         .on('mouseout', function (d) {
             tip.hide(d);
             d3.select(this)
-                .style('opacity', 0.8)
+                .style('opacity',0.95)
                 .style('stroke-width', 0.3)
                 .style('stroke', 'white');
         });

@@ -1,4 +1,3 @@
-
 // enter code to define margin and dimensions for svg
 var margin = { top: 95, right: 150, bottom: 70, left: 90 },
     width = 1000 - margin.left - margin.right,
@@ -20,9 +19,9 @@ var color = d3.scaleQuantize()
     //.range(["#eff3ff", "#bdd7e7", "#6baed6", "#2171b5"]);
     .range(["#fef0d9", "#fdcc8a", "#fc8d59", "#d7301f"]);
 var Politicalcolor = d => {
-    if (d >= -1.0 && d <= 1.0) { return "#969696" }    // Toss  >> gray
-    else if (d >= -5.0 && d < -1.0) { return "#EEA297" }    // Trump >> light red
-    else if (d > 1.0 && d <= 5.0) { return "#a6d2eb" }    // Biden >> light blue
+    if (d >= -0.50 && d <= 0.50) { return "#969696" }    // Toss  >> gray
+    else if (d >= -5.0 && d < -0.50) { return "#EEA297" }    // Trump >> light red
+    else if (d > 0.5 && d <= 5.0) { return "#a6d2eb" }    // Biden >> light blue
     else if (d < -5.0) { return "#db1035" }    // Trump
     else if (d > 5.0) { return " #2895d6" }    // Biden
     else { return "yellow" }    // Just in case something is missing
@@ -44,7 +43,7 @@ var Sumtext = svgContainer.append("text")
 var Bidenrectangle = svgContainer.append("rect")
     .attr("x", 80)
     .attr("y", 40)
-    .attr("width", 397)
+    .attr("width", 386)
     .attr("height", 50)
     .style("fill", " #2895d6");
 var Bidentext = svgContainer.append("text")
@@ -55,26 +54,26 @@ var Bidentext = svgContainer.append("text")
     .text("287");
 
 var Neutralrectangle = svgContainer.append("rect")
-    .attr("x", 477)
+    .attr("x", 466)
     .attr("y", 40)
-    .attr("width", 156)
+    .attr("width", 87)
     .attr("height", 50)
     .style("fill", " #969696");
 var Neutraltext = svgContainer.append("text")
-    .attr("x", 530)
+    .attr("x", 495)
     .attr("y", 75)
     .attr("font-size", "2em")
     .attr("color", "black")
-    .text("156");
+    .text("65");
 
 var Trumprectangle = svgContainer.append("rect")
-    .attr("x", 633)
+    .attr("x", 553)
     .attr("y", 40)
-    .attr("width", 187)
+    .attr("width", 246)
     .attr("height", 50)
     .style("fill", " #db1035");
 var Trumptext = svgContainer.append("text")
-    .attr("x", 700)
+    .attr("x", 660)
     .attr("y", 75)
     .attr("font-size", "2em")
     .attr("color", "black")
@@ -188,7 +187,7 @@ function createMapAndLegend(states, aggData, selectedGame, wordsCount) {
     aggData.forEach(d => { StateByName[d.State] = d.stateCode; });
 
 
-    stateAbbr = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "AS", "FM", "GU", "MH", "MP", "PW", "PR", "UM", "VI"]
+    stateAbbr = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "", "FM", "GU", "MH", "MP", "PW", "PR", "UM", "VI"]
 
 
     // Calculate min/max give the data and the selected game
@@ -237,7 +236,7 @@ function createMapAndLegend(states, aggData, selectedGame, wordsCount) {
             return path.centroid(d)[1];
         })
         .attr("text-anchor", "middle")
-        .attr('fill', 'white')
+        .attr('fill', 'black')
         .attr('font-weight', 'bold')
         .attr('font-size', '12px');
 
